@@ -117,6 +117,8 @@ sudo systemctl restart amazon-cloudwatch-agent
   }
 }
 ```
+![Block-sqli](poc/Picture1.png)
+![Block-sqli-log](poc/Picture2.png)
 
 All sub-rules overridden to **BLOCK**: SQLi_QUERYARGUMENTS, SQLi_BODY, SQLi_COOKIE, SQLi_URIPATH, SQLiExtendedPatterns_QUERYARGUMENTS.
 
@@ -141,6 +143,8 @@ All sub-rules overridden to **BLOCK**: SQLi_QUERYARGUMENTS, SQLi_BODY, SQLi_COOK
   }
 }
 ```
+![Block-ddos](poc/Picture3.png)
+![Block-ddos-log](poc/Picture4.png)
 
 Blocks any IP sending more than 1000 requests per 5-minute window.
 
@@ -166,6 +170,7 @@ http://ALB-DNS/login?id=%27%20OR%201=1%20/*
   "Time": "Fri Jan 24 2025 12:47:22 GMT+0530"
 }
 ```
+![Block-sqli-url](poc/Picture5.png)
 
 **Result:** HTTP 403 Forbidden — WAF blocked before request reached ALB.
 
